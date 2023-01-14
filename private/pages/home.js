@@ -19,7 +19,7 @@ module.exports = function(config){
 							<img src=/icons/info id=infobutton>
 						</span>
 						<span class=button>
-							<div id='donationbutton'>
+							<div id='donatebutton'>
 								<span>DONATE</span>
 							</div>
 						</span>
