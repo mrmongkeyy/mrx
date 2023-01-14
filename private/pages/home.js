@@ -1,5 +1,7 @@
 module.exports = function(config){
-	return `<div id=card>
+	return `
+		<div id=card>
+			<div id=donatebutton><span>DONATE</span></div>
 			<div id=head>
 				<div id=leftside>
 					<span id=companyIcons class=button>
@@ -18,9 +20,9 @@ module.exports = function(config){
 						<span class=button>
 							<img src=/icons/info id=infobutton>
 						</span>
-						<div class=button id='donatebutton'>
-							<span>DONATE</span>
-						</div>
+						<span class=button>
+							<img src=/icons/more id=morebutton>
+						</span>
 					</div>
 				</div>
 			</div>
@@ -49,6 +51,5 @@ module.exports = function(config){
 		</div>
 	`;
 }
-
 
 
