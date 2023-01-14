@@ -19,7 +19,9 @@ module.exports = function(config){
 							<img src=/icons/info id=infobutton>
 						</span>
 						<span class=button>
-							<img src=/icons/more id=morebutton>
+							<div id='donationbutton'>
+								<span>DONATE</span>
+							</div>
 						</span>
 					</div>
 				</div>
