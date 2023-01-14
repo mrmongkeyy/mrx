@@ -53,9 +53,9 @@ const route = [
 		address:'/ask',
 		callback(req,res){
 			req.on('data',async (data)=>{
-				//const response = await cika.start({interface:'app',query:JSON.parse(data.toString()).query});
-				//res.send(response);
-				res.send('helloworld');
+				const response = await cika.start({interface:'app',query:JSON.parse(data.toString()).query});
+				res.send(response);
+				//res.send('helloworld');
 			});
 		}
 	},
