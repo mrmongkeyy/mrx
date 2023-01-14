@@ -8,14 +8,7 @@ const route = [
 		methode:'get',
 		address:'/',
 		callback(req,res){
-			res.send(views.page({title:'mrx--home',bodyId:'home',bodyConfig:{msg:'from mrx'}}));
-		}
-	},
-	{
-		methode:'get',
-		address:'/logins',
-		callback(req,res){
-			res.send(views.page({title:'mrx--login',bodyId:'loginSystem'}));
+			res.send(views.page({title:'MrX by bananastudio',bodyId:'home',bodyConfig:{msg:'from mrx'}}));
 		}
 	},
 	{
