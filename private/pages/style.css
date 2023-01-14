@@ -1,0 +1,226 @@
+.leftFloat{float:left}
+.rightFloat{float:right}
+.rightTxtAlign{text-align:right}
+.borderRadius10px{border-radius:10px;}
+.bw{
+	background:black;
+	color:white;
+}
+.button{
+	cursor:pointer;
+}
+.bound{
+	position:absolute;
+	background:rgb(28, 49, 94,0.5);
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+:root{
+	--backgroundColor:white;
+	--headerColr:#DCDCDC;
+	--cardBackground:#FFFFFF;
+	--goodGreen:#44C56D;
+}
+body{
+	background:var(--backgroundColor);
+	padding:0;
+	margin:0;
+	font-family:monospace;
+	font-size:20px;
+	user-select:none;
+}
+main{
+	display:grid;
+	justify-content:center;
+	align-items:center;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+#card{
+	background:var(--cardBackground);
+	width:400px;
+	height:400px;
+	box-shadow:10px 10px 10px 10px #E9E9E9;
+	float: left;
+}
+#head{
+	width:96%;
+	padding:2%;
+	background:var(--headerColr);
+	height:10%;
+	margin:0;
+}
+#head div{
+	width:50%;
+	float:left;
+	align-items:center;
+	display:flex;
+	height:100%;
+}
+#head #rightside{
+	text-align:right;
+}
+#head #leftside{
+	text-align:left;
+}
+#head #rightside div{
+	width:100%;
+	display:flex;
+	align-items:center;
+	justify-content:right;
+}
+#head #rightside div span{
+	margin-left:5px;
+	padding:5px;
+	background:white;
+	border-radius:50%;
+}
+#head #rightside div span img{
+	width:22px;
+	height:22px;
+}
+#head div span{
+	color:black;
+	font-size:10px;
+	cursor:pointer;
+}
+#head div span img{
+	width:32px;
+	height:32px;
+	float:right;
+}
+#body{
+	height:86%;
+	width:100%;
+}
+#input{
+	height:20%;
+	display:flex;
+	align-items:center;
+	background:#fff0f6;
+}
+#output{
+	height:80%;
+}
+#output div{
+	padding:10px;
+}
+#input div{
+	float:left;
+	width:100%;
+}
+#inputC{
+	width:100%;
+	padding:2%;
+}
+#inputC input{
+	padding:5%;
+	border:none;
+	outline:none;
+}
+#sendC{
+	width:20%;
+}
+#sendC span{
+	float:right;
+}
+#sendC span img{
+	width:24px;
+	height:24px;
+	padding:22px;
+	background:var(--headerColr);
+	cursor:pointer;
+}
+#sendC span img:hover{
+	
+}
+#text span{
+	background:var(--headerColr);
+	color: blacks;
+}
+#text{
+	max-height:65%;
+	height:65%;
+	overflow:auto;
+}
+#companyName{
+	padding:5px;
+	background:white;
+	border-radius:0 10px 10px 0;
+}
+#companyIcons{
+	width: auto;
+	padding: 5px;
+	background: white;
+	border-radius: 50% 10px 10px 50%;
+}
+#companyIcons img{
+	width: 24px;
+	height: 24px;
+}
+#copybutton{
+	float:right;
+	padding:5px;
+	width:90%;
+	text-align:right;
+}
+#copybutton img{
+	width:24px;
+	height:24px;
+	padding:5px;
+	cursor:pointer;
+}
+#chattitle{
+	display:flex;
+	align-items:center;
+}
+#logincard{
+	z-index: 1;
+	position: absolute;
+	background: white;
+	padding: 50px 20px;
+	border-radius: 10px;
+}
+#logincard #showprofile{
+}
+#logincard #showprofile div{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin-bottom:10px;
+	font-weight:bold;
+}
+#ppc span{
+	float:left;
+	padding:3px;
+	background:gray;
+	border-radius:50%;
+}
+#ppc span img{
+	border-radius:50%;
+}
+#lgtbutton{
+	padding:10px;
+	border-radius:10px;
+	border:2px solid black;
+	cursor:pointer;
+	font-weight:normal;
+}
+
+@media screen and (max-width:900px){
+	main{
+		width:100%;
+		display:inline-block;
+	}
+	#card{
+		width:100%;
+		height:100%;
+	}	
+}
+
