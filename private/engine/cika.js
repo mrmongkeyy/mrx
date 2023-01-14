@@ -5,7 +5,7 @@ const mrx = {
 	},
 	async ask(msg){
 		this.configuration = new Configuration({
-			apiKey:process.env.OPENAI_API_KEY||'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',
+			apiKey:process.env.mrxcikapikey,
 		});
 		this.openAi = new OpenAIApi(this.configuration);
 		this.response = await this.openAi.createCompletion({
