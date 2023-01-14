@@ -83,7 +83,7 @@ const mrx = {
 				navigator.clipboard.writeText(help.get(document,'#text').innerText);
 			},
 			morebutton(){
-				console.log('more button is working.');
+				window.open(mrx.donationLink,'_blank');
 			}
 		};
 		help.getall(document,'.button').forEach((y)=>{
