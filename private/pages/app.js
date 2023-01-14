@@ -141,6 +141,7 @@ const mrx = {
 		  );
 		  google.accounts.id.prompt();
 		}
-	}
+	},
+	donationLink:'https://saweria.co/mrmongkeyy',
 }
 mrx.init();
