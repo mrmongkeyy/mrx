@@ -17,10 +17,7 @@ const mrx = {
 			frequency_penalty: 0.0,
 			presence_penalty: 0.0,
 		});
-		if(this.interface==='app')return this.response.data.choices[0].text.replace('\n\n','');
-		console.log(`mrx>> ${this.response.data.choices[0].text.slice(2,this.response.data.choices[0].text.length)}`);
-		//console.log(`mrx>> ${JSON.stringify(this.response.data.choices[0])}`);
-		this.start({interface:this.interface})
+		return this.response.data.choices[0].text.replace('\n\n','');
 	}
 }
 module.exports = mrx;
