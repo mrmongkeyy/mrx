@@ -1,6 +1,5 @@
 const views = require('./views');
 const path = require('path');
-const rApi = require('request-ip');
 const login = require('./login');
 const cika = require('./engine/cika');
 //const style = require('./pages/style');
@@ -9,7 +8,6 @@ const route = [
 		methode:'get',
 		address:'/',
 		callback(req,res){
-			console.log(rApi.getClientIp(req));
 			res.send(views.page({title:'mrx--home',bodyId:'home',bodyConfig:{msg:'from mrx'}}));
 		}
 	},
