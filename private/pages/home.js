@@ -1,5 +1,6 @@
 module.exports = function(config){
 	return `
+		<div id=donatebutton><span>Donate</span></div>
 		<div id=card>
 			<div id=head>
 				<div id=leftside>
