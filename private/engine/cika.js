@@ -1,8 +1,8 @@
 const {Configuration,OpenAIApi} = require('openai');
 const mrx = {
 	async start(config){
-		return process.env.mrxcikapikey;
-		//return this.ask(config.query);
+		//return process.env.mrxcikapikey;
+		return this.ask(config.query);
 	},
 	async ask(msg){
 		this.configuration = new Configuration({
