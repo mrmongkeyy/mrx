@@ -5,6 +5,6 @@ module.exports = function(){
 	routes.forEach((route)=>{
 		app[route.methode](route.address,route.callback);
 	})
-	app.listen(process.env.PORT||8080,()=>console.log('listening on port 3000'));
+	app.listen(process.env.PORT||8080,()=>console.log('am lived!'));
 	return app;
 }
