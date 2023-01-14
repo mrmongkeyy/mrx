@@ -56,7 +56,7 @@ const route = [
 		methode:'get',
 		address:'/icons/more',
 		callback(req,res){
-			res.sendFile('/pages/media/icons/setting.png',{root:path.join(__dirname)},function(err){
+			res.sendFile('/pages/media/icons/donation.png',{root:path.join(__dirname)},function(err){
 				if(err)console.log(err);
 			});
 		}
