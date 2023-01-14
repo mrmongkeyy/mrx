@@ -1,7 +1,7 @@
 module.exports = function(config){
 	return `
 		<div id=card>
-			<div id=donatebutton class=button><span>DONATE</span></div>
+			<div id=donatebutton class=button><span id=morebutton>DONATE</span></div>
 			<div id=head>
 				<div id=leftside>
 					<span id=companyIcons class=button>
