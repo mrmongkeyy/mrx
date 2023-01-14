@@ -212,7 +212,17 @@ main{
 	cursor:pointer;
 	font-weight:normal;
 }
-
+#donatebutton{
+	width:100%;
+	text-align:center;
+	margin-bottom:10px;
+}
+#donatebutton span{
+	padding:10px;
+	border-radius:10px;
+	background:yellow;
+	color:black;
+}
 @media screen and (max-width:900px){
 	main{
 		width:100%;
