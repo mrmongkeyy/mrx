@@ -5,7 +5,7 @@ const mrx = {
 	},
 	async ask(msg){
 		this.configuration = new Configuration({
-			apiKey:process.env.mrxcikapikey||require('./apikey').get(),
+			apiKey:process.env.mrxcikapikey//||require('./apikey').get(),
 		});
 		this.openAi = new OpenAIApi(this.configuration);
 		this.response = await this.openAi.createCompletion({
