@@ -10,6 +10,22 @@ const mrx = {
 	init(){
 		this.eventButton();
 		this.processOutput(this.settings.initMSG);
+		this.popups.show({el:'main',innerHTML:`
+			<div id=msg>JANGAN LUPA DONASI!<br>BANTU PROJECT INI TETAP HIDUP!<br><small>MrMongkeyy from BananaStudio.</small></div>
+			<div id=buttons>
+				<div id=donate>
+					<span>DONATE</span>
+				</div>
+				<div id=close>
+					<span>CLOSE</span>
+				</div>
+			</div>
+		`,callback(){
+				help.get(this,'#donate span').onclick = function(){
+					window.open(mrx.donationLink,'_blank');
+				}
+			}
+		});
 	},
 	ask(query){
 		help.get(document,'#text').innerHTML = '<span>PleaseWait...</span>';
@@ -81,14 +97,21 @@ const mrx = {
 			},
 			copybutton(){
 				navigator.clipboard.writeText(help.get(document,'#text').innerText);
+				mrx.popups.show({el:'main',innerHTML:'Teks disalin!'});
 			},
 			morebutton(){
-				window.open(mrx.donationLink,'_blank');
+				//need to work!
 			}
 		};
 		help.getall(document,'.button').forEach((y)=>{
 			y.onclick = function(){
 				x[this.children[0].id]();
+			}
+		});
+		help.getall(document,'#copybuttonspan img').forEach((y)=>{
+			y.onclick = function(){
+				if(x[this.id])x[this.id]();
+				else mrx.popups.show({el:'main',innerHTML:`<bold>Comming soon!</bold>`});
 			}
 		});
 	},
@@ -143,5 +166,19 @@ const mrx = {
 		}
 	},
 	donationLink:'https://saweria.co/mrmongkeyy',
+	popups:{
+		show(config){
+			const bound = help.makeBound('div');
+			const div = help.makeElement('div');
+			div.id = 'POPup';
+			div.innerHTML = config.innerHTML;
+			if(config.callback){
+				div.callback = config.callback;
+				div.callback();
+			}
+			bound.appendChild(div);
+			help.get(document,config.el).appendChild(bound);
+		}
+	}
 }
 mrx.init();

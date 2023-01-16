@@ -153,6 +153,7 @@ main{
 	padding:5px;
 	background:white;
 	border-radius:0 10px 10px 0;
+	font-weight:bold;
 }
 #companyIcons{
 	width: auto;
@@ -164,17 +165,20 @@ main{
 	width: 24px;
 	height: 24px;
 }
-#copybutton{
+#copybuttonspan{
 	float:right;
 	padding:5px;
 	width:90%;
 	text-align:right;
 }
-#copybutton img{
-	width:24px;
-	height:24px;
-	padding:5px;
-	cursor:pointer;
+#copybuttonspan img{
+	width: 24px;
+	height: 24px;
+	padding: 5px;
+	cursor: pointer;
+	background: lightgray;
+	margin-right: 5px;
+	border-radius: 50%;
 }
 #chattitle{
 	display:flex;
@@ -223,6 +227,32 @@ main{
 	background:yellow;
 	color:black;
 	display:inline-block;
+}
+#POPup{
+	background:white;
+	padding:100px;
+	border-radius:10px;
+}
+#POPup div{
+	width:100%;
+}
+#POPup #msg{
+	margin-bottom:50px;
+}
+#POPup #buttons div{
+	float:left;
+	width:50%;
+	text-align:center;
+}
+#POPup #buttons div span{
+	background:yellow;
+	padding:5px;
+	border-radius:10px;
+	cursor:pointer;
+}
+#POPup #buttons div span:hover{
+	background:black;
+	color:white;
 }
 @media screen and (max-width:900px){
 	main{

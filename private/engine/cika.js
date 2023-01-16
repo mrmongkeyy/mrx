@@ -1,12 +1,11 @@
 const {Configuration,OpenAIApi} = require('openai');
 const mrx = {
 	async start(config){
-		//return process.env.mrxcikapikey;
 		return this.ask(config.query);
 	},
 	async ask(msg){
 		this.configuration = new Configuration({
-			apiKey:process.env.mrxcikapikey,
+			apiKey:process.env.mrxcikapikey||require('./apikey').get(),
 		});
 		this.openAi = new OpenAIApi(this.configuration);
 		this.response = await this.openAi.createCompletion({

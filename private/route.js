@@ -54,63 +54,9 @@ const route = [
 	},
 	{
 		methode:'get',
-		address:'/icons/more',
+		address:'/icons',
 		callback(req,res){
-			res.sendFile('/pages/media/icons/donation.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/icons/keys',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/key.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/icons/user',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/user.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/icons/info',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/info.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/icons/banana',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/banana.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/submitIcons',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/send.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
-		}
-	},
-	{
-		methode:'get',
-		address:'/icons/copy',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/copy.png',{root:path.join(__dirname)},function(err){
+			res.sendFile(`/pages/media/icons/${req.query.nf}.png`,{root:path.join(__dirname)},function(err){
 				if(err)console.log(err);
 			});
 		}
@@ -131,15 +77,6 @@ const route = [
 			req.on('data',async (data)=>{
 				login(JSON.parse(data.toString()),res);
 			})
-		}
-	},
-	{
-		methode:'get',
-		address:'/titleicon',
-		callback(req,res){
-			res.sendFile('/pages/media/icons/brain.png',{root:path.join(__dirname)},function(err){
-				if(err)console.log(err);
-			});
 		}
 	}
 ];
