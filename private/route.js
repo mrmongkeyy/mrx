@@ -132,6 +132,13 @@ const route = [
 				login(JSON.parse(data.toString()),res);
 			})
 		}
+	},
+	{
+		methode:'get',
+		address:'/titleicon',
+		callback(req,res){
+			
+		}
 	}
 ];
 module.exports=route;
