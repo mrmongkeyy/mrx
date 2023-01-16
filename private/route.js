@@ -137,7 +137,9 @@ const route = [
 		methode:'get',
 		address:'/titleicon',
 		callback(req,res){
-			
+			res.sendFile('/pages/media/icons/brain.png',{root:path.join(__dirname)},function(err){
+				if(err)console.log(err);
+			});
 		}
 	}
 ];
