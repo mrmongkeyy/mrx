@@ -5,7 +5,6 @@ const views = {
 	loginSystem,
 	page(config){
 		return `
-			<!DOCTYPE html>
 			<html>
 				<head>
 					<title>${config.title}</title>
