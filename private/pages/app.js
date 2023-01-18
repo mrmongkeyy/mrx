@@ -28,6 +28,7 @@ const mrx = {
 		});
 	},
 	ask(query){
+		if(this.processingOutput)this.reqskip=true;
 		help.get(document,'#text').innerHTML = '<span>PleaseWait...</span>';
 		req.post({url:'/ask',data:JSON.stringify({query}),onload(res){
 			help.get(document,'#theinput').value = '';
