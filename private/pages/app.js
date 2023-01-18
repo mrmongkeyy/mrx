@@ -120,7 +120,12 @@ const mrx = {
 			},
 			copybutton(){
 				navigator.clipboard.writeText(help.get(document,'#text').innerText);
-				mrx.popups.show({el:'main',innerHTML:'Teks disalin!'});
+				mrx.popups.show({el:'main',innerHTML:'Teks disalin!<br><small>Klik untuk menutup</small>',callback(){
+					//this.onclick = this.parentNode.remove;
+					this.onclick = ()=>{
+						this.parentNode.remove();
+					}
+				}});
 			},
 			//ontest.
 			reloadbutton(){
