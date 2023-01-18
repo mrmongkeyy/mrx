@@ -1,15 +1,14 @@
 
-
+//define the object.
 const mrx = {
 	settings:{
 		timeInterval:100,
 		displayMode:'alpha',//between words and alpha.
 		aboutMSG:'MRX is a great app, actually far better than Brainly. Because MRX has good thinking abilities, I used an AI API in building it. You can do a lot of things, beginning from asking questions, chatting, consulting, and asking it to do other things. I have made good progress, and will keep improving- wait and see the results!',
-		initMSG:'Helloworld!, this is MRX.',
+		initMSG:'Helloworld!, this is MRX. Currently in development!',
 	},
 	init(){
 		this.eventButton();
-		this.processOutput(this.settings.initMSG);
 		this.popups.show({el:'main',innerHTML:`
 			<div id=msg>JANGAN LUPA DONASI!<br>BANTU PROJECT INI TETAP HIDUP!<br><small>MrMongkeyy from BananaStudio.</small></div>
 			<div id=buttons>
@@ -24,6 +23,7 @@ const mrx = {
 				help.get(this,'#donate span').onclick = function(){
 					window.open(mrx.donationLink,'_blank');
 				}
+				mrx.processOutput(mrx.settings.initMSG);
 			}
 		});
 	},
@@ -34,21 +34,40 @@ const mrx = {
 			mrx.processOutput(res.target.responseText);
 		}});
 	},
+	reqreload:false,
+	reqpaused:false,
+	reqskip:false,
 	processOutput(value){
 		if(this.processingOutput)return
 		else this.processingOutput = true;
 		help.get(document,'#text').innerHTML = '';
 		this.listResponse = this.getOutputMode(value);
-		let index = -1;
+		let index = 0;
+		help.get(document,'#playbutton').src = '/icons?nf=pause';
 		this.intervalProcess = setInterval(function(){
-			index++;
-			if(index===mrx.listResponse.length){
-				mrx.processingOutput = false;clearInterval(mrx.intervalProcess);return;
+			if(mrx.reqpaused)return
+			if(index===mrx.listResponse.length || mrx.reqreload){
+				mrx.processingOutput = false;
+				clearInterval(mrx.intervalProcess);
+				if(mrx.reqreload){
+					mrx.reqreload = false;
+					mrx.processOutput(mrx.settings.initMSG);
+				}
+				help.get(document,'#playbutton').src = '/icons?nf=play';
+				return;
 			}
-			const span = help.makeElement('span');
-			span.innerText = `${mrx.listResponse[index]}${(mrx.settings.displayMode=='words')?' ':''}`;
-			help.get(document,'#text').appendChild(span);
-			span.scrollIntoView();
+			let len = 1;
+			if(mrx.reqskip){
+					len = mrx.listResponse.length-index;
+			}
+			for(let i=0;i<len;i++){
+				const span = help.makeElement('span');
+				span.innerText = `${mrx.listResponse[index]}${(mrx.settings.displayMode=='words')?' ':''}`;
+				help.get(document,'#text').appendChild(span);
+				span.scrollIntoView();
+				index++;
+				if(i==len-1)mrx.reqskip = false;
+			}
 		},mrx.settings.timeInterval)//in ms.
 	},
 	forceOffline(){
@@ -99,8 +118,21 @@ const mrx = {
 				navigator.clipboard.writeText(help.get(document,'#text').innerText);
 				mrx.popups.show({el:'main',innerHTML:'Teks disalin!'});
 			},
+			//ontest.
+			reloadbutton(){
+				if(mrx.processingOutput)mrx.reqreload = true;
+			},
+			skipbutton(){
+				if(mrx.processingOutput)mrx.reqskip = true;
+			},
+			playbutton(el){
+				if(mrx.processingOutput){
+					el.src = `/icons?nf=${(mrx.reqpaused)?'pause':'play'}`;
+					mrx.reqpaused = !mrx.reqpaused;
+				}
+			},
 			morebutton(){
-				//need to work!
+				mrx.popups.show({el:'main',innerHTML:'Options'});
 			}
 		};
 		help.getall(document,'.button').forEach((y)=>{
@@ -110,7 +142,7 @@ const mrx = {
 		});
 		help.getall(document,'#copybuttonspan img').forEach((y)=>{
 			y.onclick = function(){
-				if(x[this.id])x[this.id]();
+				if(x[this.id])x[this.id](this);
 				else mrx.popups.show({el:'main',innerHTML:`<bold>Comming soon!</bold>`});
 			}
 		});
