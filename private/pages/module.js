@@ -16,7 +16,7 @@ const help = {
 	makeBound(p){
 		const el = this.makeElement(p);
 		el.className = 'bound';
-		el.onclick = el.remove;
+		//el.onclick = el.remove;
 		return el;
 	},
 	makeElement(p){

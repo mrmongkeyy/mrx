@@ -28,7 +28,7 @@ module.exports = function(config){
 			<div id=body>
 				<div id=output>
 					<div>
-						<div style=font-weight:bold; id=chattitle>-MRX
+						<div style=font-weight:bold; id=chattitle>MRX
 							<span id=copybuttonspan>
 								<img src=/icons?nf=copy id=copybutton>
 								<img src=/icons?nf=reload id=reloadbutton>
@@ -41,7 +41,7 @@ module.exports = function(config){
 					</div>	
 				</div>
 				<div id=input>
-					<div style=font-weight:bold;text-align:center;>-YOU</div>
+					<div style=font-weight:bold;text-align:center;>YOU</div>
 					<div id=inputC>
 						<input placeholder="Type here..." id=theinput>
 					</div>

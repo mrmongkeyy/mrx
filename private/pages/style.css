@@ -232,12 +232,16 @@ main{
 	background:white;
 	padding:100px;
 	border-radius:10px;
+	z-index:1;
 }
 #POPup div{
 	width:100%;
 }
 #POPup #msg{
 	margin-bottom:50px;
+}
+#POPup #buttons{
+	margin-top:15px;
 }
 #POPup #buttons div{
 	float:left;

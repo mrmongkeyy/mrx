@@ -23,6 +23,9 @@ const mrx = {
 				help.get(this,'#donate span').onclick = function(){
 					window.open(mrx.donationLink,'_blank');
 				}
+				help.get(this,'#close span').onclick = function(){
+					help.get(document,'.bound').remove();
+				}
 				mrx.processOutput(mrx.settings.initMSG);
 			}
 		});
@@ -133,7 +136,18 @@ const mrx = {
 				}
 			},
 			morebutton(){
-				mrx.popups.show({el:'main',innerHTML:'Options'});
+				mrx.popups.show({el:'main',innerHTML:template.moreoptions(mrx.settings),
+				callback(){
+					help.get(this,'#savebutton').onclick=()=>{
+						mrx.settings.timeInterval = help.get(this,'#timeintervalvalue').value;
+						mrx.settings.displayMode = help.get(this,'#displaymodevalue').value;
+						help.get(this,'#closebutton').click();
+					}
+					help.get(this,'#closebutton').onclick=()=>{
+						this.parentNode.remove();
+					}
+				}
+				});
 			}
 		};
 		help.getall(document,'.button').forEach((y)=>{
