@@ -82,13 +82,6 @@ const mrx = {
 		if(this.settings.displayMode==='alpha')return value.split('');
 		return value.split(' ');
 	},
-	templ:{
-		moreMenus(){
-			return `
-				<div>More<div>
-			`;
-		}
-	},
 	showPopMenus(){
 		const bound = help.makeElement('div');
 		bound.className = 'bound';
