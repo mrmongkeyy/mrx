@@ -2,24 +2,14 @@
 //define the object.
 const mrx = {
 	settings:{
-		timeInterval:100,
+		timeInterval:50,//[50,1000].
 		displayMode:'alpha',//between words and alpha.
 		aboutMSG:'MRX is a great app, actually far better than Brainly. Because MRX has good thinking abilities, I used an AI API in building it. You can do a lot of things, beginning from asking questions, chatting, consulting, and asking it to do other things. I have made good progress, and will keep improving- wait and see the results!',
 		initMSG:'Helloworld!, this is MRX. Currently in development!',
 	},
 	init(){
 		this.eventButton();
-		this.popups.show({el:'main',innerHTML:`
-			<div id=msg>JANGAN LUPA DONASI!<br>BANTU PROJECT INI TETAP HIDUP!<br><small>MrMongkeyy from BananaStudio.</small></div>
-			<div id=buttons>
-				<div id=donate>
-					<span>DONATE</span>
-				</div>
-				<div id=close>
-					<span>CLOSE</span>
-				</div>
-			</div>
-		`,callback(){
+		this.popups.show({el:'main',innerHTML:template.initPops(),callback(){
 				help.get(this,'#donate span').onclick = function(){
 					window.open(mrx.donationLink,'_blank');
 				}
@@ -173,9 +163,10 @@ const mrx = {
 			const logindiv = help.makeElement('div');
 			logindiv.id = 'logincard';
 			logindiv.innerHTML = template.login();
-			bound.appendChild(logindiv)
+			bound.appendChild(logindiv);
+			logindiv.find('div#close').onclick = ()=>{bound.remove()}
 			help.get(document,'main').appendChild(bound);
-			this.runGoogle();
+			if(navigator.onLine)this.runGoogle();
 		},
 		show(){
 			const bound = help.makeBound('div');
@@ -192,7 +183,7 @@ const mrx = {
 			const logindiv = help.makeElement('div');
 			logindiv.id = 'logincard';
 			logindiv.innerHTML = template.showKeys(this.info);
-			bound.appendChild(logindiv)
+			bound.appendChild(logindiv);
 			help.get(document,'main').appendChild(bound);
 		},
 		handleCredentialResponse(response) {
@@ -200,7 +191,7 @@ const mrx = {
 		},
 		runGoogle() {
 		  google.accounts.id.initialize({
-		    client_id: "948004097320-0ekokmae4mhm3l9aeph34r6kj9i65h1t.apps.googleusercontent.com",
+		    client_id: googole.getClientId(),
 		    callback: this.handleCredentialResponse
 		  });
 		  google.accounts.id.renderButton(

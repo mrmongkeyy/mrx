@@ -16,6 +16,7 @@ const views = {
 				<body><main>${this[config.bodyId](config.bodyConfig)}</main></body>
 				<script src=/script/module></script>
 				<script src=/script/template></script>
+				<script src=/script/googole></script>
 				<script src=/script/app></script>
 			</html>
 		`;

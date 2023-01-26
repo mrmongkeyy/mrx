@@ -1,8 +1,23 @@
 const template = {
+	initPops(){
+		return `
+			<div id=msg>JANGAN LUPA DONASI!<br>BANTU PROJECT INI TETAP HIDUP!<br><small>MrMongkeyy from BananaStudio.</small></div>
+			<div id=buttons>
+				<div id=donate>
+					<span>DONATE</span>
+				</div>
+				<div id=close>
+					<span>CLOSE</span>
+				</div>
+			</div>
+		`	
+	},
 	login(){
 		return `
       <div style=font-weight:bold;margin-bottom:15px;>MRX Login Mode</div>
-    	<div id="buttonDiv"></div>
+    	<div id=buttons style=text-align:center;margin-top:10px;>
+    		<div id=close><span style=background:yellow;color:black;padding:5px;border-radius:10px;cursor:pointer;>close</span></div>
+    	</div>
 		`;
 	},
 	showLogin(config){
@@ -35,7 +50,7 @@ const template = {
 				<div>
 					<div>Display Interval:</div>
 					<div>
-						<input type=number max=1000 min=0 step=100 value=${config.timeInterval} id=timeintervalvalue>
+						<input type=number max=1000 min=50 step=10 value=${config.timeInterval} id=timeintervalvalue>
 					</div>
 				</div>
 			</div>

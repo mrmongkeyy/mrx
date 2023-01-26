@@ -34,6 +34,16 @@ const route = [
 	{
 		//sending styling file.
 		methode:'get',
+		address:'/script/googole',
+		callback(req,res){
+			res.sendFile('/pages/googole.js',{root:path.join(__dirname)},function(err){
+				if(err)console.log(err);
+			});
+		}
+	},
+	{
+		//sending styling file.
+		methode:'get',
 		address:'/script/app',
 		callback(req,res){
 			res.sendFile('/pages/app.js',{root:path.join(__dirname)},function(err){
