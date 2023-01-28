@@ -195,7 +195,7 @@ const mrx = {
 		    callback: this.handleCredentialResponse
 		  });
 		  google.accounts.id.renderButton(
-		    document.getElementById("buttonDiv"),
+		    document.getElementById("googlebutton"),
 		    { theme: "outline", size: "large" }
 		  );
 		  google.accounts.id.prompt();

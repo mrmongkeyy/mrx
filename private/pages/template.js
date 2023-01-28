@@ -30,6 +30,7 @@ const template = {
 			</div>
 			<div>${config.userName}</div>
 			<div>
+				<div id=googlebutton></div>
 				<div id=lgtbutton>LogOut</div>
 			</div>
 		`;
