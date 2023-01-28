@@ -16,6 +16,7 @@ const template = {
 		return `
       <div style=font-weight:bold;margin-bottom:15px;>MRX Login Mode</div>
     	<div id=buttons style=text-align:center;margin-top:10px;>
+		<div id=googlebutton></div>
     		<div id=close><span style=background:yellow;color:black;padding:5px;border-radius:10px;cursor:pointer;>close</span></div>
     	</div>
 		`;
@@ -30,7 +31,6 @@ const template = {
 			</div>
 			<div>${config.userName}</div>
 			<div>
-				<div id=googlebutton></div>
 				<div id=lgtbutton>LogOut</div>
 			</div>
 		`;

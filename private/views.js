@@ -1,8 +1,6 @@
 const home = require('./pages/home');
-const loginSystem = require('./pages/loginsystem');
 const views = {
 	home,
-	loginSystem,
 	page(config){
 		return `
 			<html>
